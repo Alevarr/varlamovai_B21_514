@@ -6,7 +6,8 @@ if __name__ == '__main__':
         reader = csv.reader(csv_file)
         with open('README.MD', 'w', encoding='utf-8') as file:
             next(reader)
-            file.write("# Лабораторная работа №5. Выделение признаков символов.")
+            file.write("# Лабораторная работа №5. Выделение признаков символов. \n")
+            file.write("Испанские строчные буквы Times New Roman 52")
             for (i, letter), row in zip(enumerate(LETTERS), reader):
                 file.write(
                     f"""

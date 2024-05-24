@@ -1,4 +1,5 @@
-# Лабораторная работа №5. Выделение признаков символов.
+# Лабораторная работа №5. Выделение признаков символов. 
+Испанские строчные буквы Times New Roman 52
 ## Буква a
 
 <img src="1.13/inverse_spanish_lowercase_letters/a.png" width="100"> <img src="profiles/x/a.png" width="300"> <img src="profiles/y/a.png" width="300">
