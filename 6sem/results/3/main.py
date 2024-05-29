@@ -28,6 +28,26 @@ def split_letters(img: np.array, profile: np.array):
 
     return letters, letter_borders
 
+def crop(image_path):
+    img = Image.open(image_path).convert('L')
+
+    # Преобразовать изображение в массив numpy
+    img_arr = np.array(img)
+
+    # Найти индексы строк и столбцов, содержащих нечерные пиксели
+    non_black_columns = np.where(np.any(img_arr != 0, axis=0))[0]
+    non_black_rows = np.where(np.any(img_arr != 0, axis=1))[0]
+
+    # Найти границы обрезки
+    left, right = non_black_columns[0], non_black_columns[-1]
+    top, bottom = non_black_rows[0], non_black_rows[-1]
+
+    # Обрезать изображение
+    cropped_img = img.crop((left, top, right + 1, bottom + 1))
+
+    # Сохранить обрезанное изображение
+    cropped_img.save(image_path)
+
 img = np.array(Image.open("../1/output/Screenshot_inverse.bmp").convert("L"))
 profile_y = calculate_profile(img, 1)
 img_letters, letter_borders = split_letters(img, profile_y)
@@ -44,11 +64,8 @@ rgb_img.save(f"output/result.png")
 
 for i, letter in enumerate(img_letters):
         for axis in (0, 1):
-            # letter_profile = calculate_profile(letter, axis)
-            # letter, _ = cut_black(letter, letter_profile, axis)
             letter_img = Image.fromarray(letter.astype(np.uint8), 'L').convert('1')
 
             letter_img.save(f"output/characters/{i}.png")
+            crop(f"output/characters/{i}.png")
 
-        # letter_img = invert(letter_img)
-        # letter_img.save(f"results/symbols/letter_{i}.png")

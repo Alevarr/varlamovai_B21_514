@@ -47,7 +47,7 @@ if __name__ == '__main__':
     method_prefix = 'Image_Profiles'
 
     for i, letter in enumerate(LETTERS):
-        img_src = Image.open(f'1.13/spanish_lowercase_letters/{letter}.png').convert('L')
+        img_src = Image.open(f'1.13/inverse_spanish_lowercase_letters/{letter}.png').convert('L')
         img_src_arr = np.array(img_src)
 
         img_src_arr[img_src_arr == 0] = 1
