@@ -1,0 +1,2 @@
+Minimum frequency: 117.1875 Hz
+Maximum frequency: 5718.75 Hz
