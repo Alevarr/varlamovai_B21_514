@@ -1,0 +1,2 @@
+Average Value (AV): 13.8331298828125
+Difference (D): 924
